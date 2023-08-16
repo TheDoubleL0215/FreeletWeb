@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+
+
+
+body{
+    overflow: hidden;
+    height: 100vh;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.main_text_div{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.top{
+    position: fixed;
+    display: flex;
+    z-index:1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: #4255FF;
+}
+
+.freelet_logo_img{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    max-width: 400px;
+    max-height: 60px;
+    cursor: pointer;
+}
+
+.header_logo_div{
+    margin-right: auto;
+}
+
+.reg_login_btns_div{
+
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.register_btn {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: #4255FF;
+    border: none;
+    cursor: pointer;
+    border-radius: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 150px;
+    transition: 0.3s;
+}
+
+.register_btn:hover{
+    scale: 1.1;
+    border-radius: 15px;
+    background-color: #ccf281;
+    color:#4255FF;
+
+}
+
+.login_btn{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+    border-radius: 2rem;
+    border-style: solid;
+    background-color: transparent;
+    border-width: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 150px;
+    transition: 0.3s;
+}
+
+.login_btn:hover{
+    scale: 1.1;
+    border-radius: 15px;
+    background-color: #ccf281;
+    color:#4255FF;
+}
+
+.main_text_div {
+    align-content: center;
+    position: relative;
+    display: grid;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.main_text_h1{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 64px;
+    color: #4255FF;
+}
+
+.more_info_button{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: large;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+    border-radius: 2rem;
+    border-style: solid;
+    background-color:#4255FF;
+    border-width: 2px;
+    height: 50px;
+    width: 200px;
+    transition: 0.3s;
+}
+.more_info_button:hover{
+    scale: 1.1;
+    border-radius: 15px;
+    background-color: #ccf281;
+    color: #4255FF;
+}
+
+@media (max-width: 536px){
+    body{
+        overflow: hidden;
+    }
+    
+    .top{
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+    }
+    .login_btn, .register_btn{
+        margin-bottom: 10px;
+    }
+    .header_logo_div{
+        margin: 0 auto;
+    }
+    .freelet_logo_img{
+        padding-left: 0px;
+    }
+    .main_text_h1{
+        font-size: 58px;
+    }
+}

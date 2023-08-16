@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+
+
+/*main color: #4255FF;*/
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #4255FF;
+}
+.center{
+    background-color: white;
+    box-shadow: 3px 3px 6px;
+    border: none;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 20px;
+    width: 400px;
+    height: 500px;
+    rotate: -1deg;
+}
+.center h1{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #4255FF;
+}
+
+.center form{
+    z-index: 1;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txt_fields{
+    position: relative;
+    border-bottom: 2px solid #c1c1c1;;
+    margin: 30px 0;
+}
+
+.txt_fields input{
+    font-family: 'Josefin Sans', sans-serif;
+    color: #4255FF;
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_fields label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #4255FF;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.txt_fields span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ccf281;
+    transition: .5s;
+}
+
+.txt_fields input:focus ~ label,
+.txt_fields input:valid ~ label{
+    top: -5%;
+    color: #c1c1c1;
+}
+
+.txt_fields input:focus ~ span::before,
+.txt_fields input:valid ~ span::before{
+    width: 100%;
+    color: #4255FF;
+
+}
+
+input[type="submit"]{
+    background-color: #e1e1e1;
+    width: 100%;
+    height: 50px;
+    color: #4255FF;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 22px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="submit"]:hover{
+    scale: 1.1;
+    border-radius: 15px;
+    border: none;
+    background-color: #ccf281;
+    color:#4255FF;
+}
+

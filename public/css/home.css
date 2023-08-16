@@ -1,0 +1,134 @@
+
+
+
+body{
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0b164d;
+}   
+
+.header_logo_div{
+    margin: 0;
+    padding: 20px;
+}
+
+.header_logo{
+    max-height: 80px;
+}
+
+.new_deck_create_button_div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}
+
+.create_new_deck_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    color: #4255FF;
+    border: none;
+    cursor: pointer;
+    border-radius: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.create_new_deck_btn:hover{
+    scale: 1.1;
+    border-radius: 15px;
+    background-color: #ccf281;
+}
+
+.create_new_deck_btn span{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.plus_icon{
+    max-height: 20px;
+}
+
+.decks_main_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60px;
+    margin-right: 60px;
+    flex-wrap: wrap; 
+}
+
+.item{
+    flex: 2; 
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: large;
+    color: white;
+    padding: 20px 50px;
+    border: solid 1px;
+    margin: 10px;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.item:hover{
+    color: #4255FF;
+    font-weight: 900;
+    background-color: #ccf281;
+    scale: 1.2;
+    border-radius: 15px;
+}
+
+.header_logo_div{
+    display: flex;
+    align-items: center;
+}
+
+.logout_div{
+    margin-left: auto;
+}
+
+.logout_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4255FF;
+    border: none;
+    cursor: pointer;
+    border-radius: 2rem;
+    margin-left: 10px;
+    margin-right: 70px;
+    height: 50px;
+    width: 150px;
+    transition: 0.3s;
+}
+
+.logout_btn:hover{
+    scale: 1.1;
+    border-radius: 15px;
+    background-color: #ccf281;
+}
+
+.created_decks_p_div{
+    margin-left: 70px;
+}
+
+.created_decks_p{
+    color: #ccf281;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+
+}
