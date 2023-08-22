@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/createDeck.css">
     <link rel="icon" href="img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
     <title>Freelet - Új pakli</title>
 </head>
 <body>
     <div class="header_logo_div">
         <img src="img/freelet_logo_full_white.svg" class="header_logo">
+        <button class="saving_btn" id="saving_btn">Mentés</button>
+    </div>
+    <div class="naming_container">
+        <div class="naming_div">
+            <input type="text" class="naming_input" placeholder="Add meg a pakli nevét: " id="naming_input" required>
+            <p class="naming_p">Név</p>
+        </div>
     </div>
     <div class="kartyak_p">
         <p>Kártyák</p>
@@ -23,11 +33,11 @@
                     <p class="order_number_p">1</p>
                 </div>
                 <div class="new_term_div">
-                    <input class="new_term_input" type="text" >
+                    <input class="new_term_input" name="new_term_input" required>
                     <p class="new_term_p">Fogalom</p>
                 </div>
                 <div class="new_definition_div">
-                    <input class="new_definition_input" type="text" >
+                    <input type="text" class="new_definition_input" name="new_definition_input" required>
                     <p class="new_definition_p">Definíció</p>
                 </div>
             </div>

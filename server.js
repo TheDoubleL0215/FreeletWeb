@@ -107,8 +107,8 @@ app.post('/loginUser', (req, res)=> {
 
 })
 
-app.post('/getFreeletId', (req, res) => {
-
+app.post('/createNewDeck', (req, res) => {
+    console.log(req.body)
 })
 
 process.on('SIGINT', () => {

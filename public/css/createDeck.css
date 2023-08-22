@@ -5,11 +5,50 @@ body{
     height: 100vh;
     background-color: #0b164d;
     font-family: 'Josefin Sans', sans-serif;
-}  
+    overflow-x: hidden;
+} 
+
 
 .header_logo_div{
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 20px;
+}
+
+@media (max-width: 580px){
+    .header_logo_div{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .saving_btn{
+        margin-left: 0px !important;
+    }
+    .saving_btn{
+        margin-top: 20px;
+    }
+    .kartyak_p p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 837px){
+    .cards_container_div{
+        margin-inline: 10px !important;
+    }
+    
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .new_definition_div{
+        margin-left: 0px !important;
+        margin-top: 10px !important;
+    }
 }
 
 .header_logo{
@@ -41,15 +80,16 @@ body{
 .card{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     flex-shrink: 0;
     background-color: #122276;
     padding: 10px;
     margin: 10px;
     border-radius: 1rem;
-    box-shadow: 10px;
+    box-shadow: 20px;
 }
+
 
 .new_term_div{
     display: flex;
@@ -75,7 +115,6 @@ body{
     border: solid 2px rgb(0, 0, 0);
     border-radius: 1rem;
     color:#ccf281;
-
     padding-inline: 18px;
     font-family: sans-serif;
     background-color: #ffffff;
@@ -106,7 +145,7 @@ body{
 }
 
 .new_term_div input:focus ~ .new_term_p,
-.new_term_div input:not(:empty) ~ .new_term_p{
+.new_term_div input:valid ~ .new_term_p{
     color: #ccf281;
     transform: translateX(8px) translateY(-25px);
     background-color: #122276;
@@ -114,7 +153,7 @@ body{
     padding: 0 5px;
 }
 .new_definition_div input:focus ~ .new_definition_p,
-.new_definition_div input:not(:empty)  ~ .new_definition_p{
+.new_definition_div input:valid  ~ .new_definition_p{
     color: #ccf281;
     transform: translateX(8px) translateY(-25px);
     background-color: #122276;
@@ -162,4 +201,73 @@ body{
     width: 100%;
 }
 
+.naming_div{
+    border-radius: 2rem;
+    background-color: #122276;
+    padding: 20px;
+    box-shadow: 20px;
+    flex-direction: column;
+    margin: 20px;
+    margin-left: 40px;
+}
 
+.naming_container{
+    display: flex;
+}
+
+.naming_p{
+    color: #ccf281;
+    font-size: 20px;
+}
+
+.naming_input{
+    width: 100%;
+    color: white;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 3px solid #223bb5;
+    font-family: sans-serif;
+    background: none;
+    font-size: 24px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.naming_input::placeholder{
+    color: #696969;
+    font-family: 'Josefin Sans';
+}
+
+.naming_input:focus{
+    border-bottom: 3px solid #ccf281;
+}
+
+.naming_input::placeholder{
+    font-size: 18px;
+}
+
+.saving_btn{
+    margin-left: auto;
+    font-size: larger;
+    color: #122276;
+    font-weight: 600;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: none;
+    background-color: #ccf281;
+    font-family: 'Josefin Sans';
+    height: 40px;
+    width: 120px;
+    transition: 0.3s;
+}
+
+.saving_btn:hover{
+    scale: 1.1;
+}
+
+.saving_button_div{
+    position: relative;
+    display: flex;
+    margin-left: auto;
+}
