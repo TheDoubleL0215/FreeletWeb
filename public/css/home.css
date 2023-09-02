@@ -4,7 +4,7 @@
 body{
     margin: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: #0b164d;
 }   
 
@@ -59,14 +59,13 @@ body{
 .decks_main_container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-left: 60px;
     margin-right: 60px;
     flex-wrap: wrap; 
 }
 
-.item{
-    flex: 2; 
+.item{ 
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
     font-size: large;
@@ -135,4 +134,41 @@ body{
 
 .item_p{
     user-select: none;
+}
+
+.nothing_found_div{
+    display: none;
+    margin-left: 60px;
+}
+
+@keyframes moving_search{
+    0%, 100% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(30px, 15px);
+      }
+      50% {
+        transform: translate(15px, 30px);
+      }
+      75% {
+        transform: translate(30px, -15px);
+      }
+}
+
+.nothing_found_p{
+    margin-left: 20px;
+    line-height: 1.5;
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+}
+
+.search_icon{
+    animation: ease-in-out infinite;
+    animation-name: moving_search;
+    position: relative;
+    animation-duration: 6s;
+    margin: 20px;
+    max-width: 60px;
 }

@@ -6,23 +6,35 @@
     <title>Freelet - Bejelentkezés</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" href="/img/icon.png">
+    <script src="https://kit.fontawesome.com/e775d902d1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <div class="center">
-        <h1>Bejelentkezés</h1>
-        <form id="loginForm">
-            <div class="txt_fields">
-                <input type="text" id="usernameInput" required>
-                <span></span>
-                <label>Felhasználónév</label>
-            </div>
-            <div class="txt_fields">
-                <input type="password" id="passwordInput" required>
-                <span></span>
-                <label>Jelszó</label>
-            </div>
-            <input type="submit" value="Bejelentkezés">
+    <!--Background images-->
+        <!--<img class="galaxy_back" src="/img/backs/galaxy.png" >-->
+        <!--<img class="planet1_back" src="/img/backs/planet1.png">-->
+        
+        <div class="center">
+            <h1>Bejelentkezés</h1>
+            <form id="loginForm">
+                <div class="txt_fields">
+                    <input type="text" id="usernameInput" required>
+                    <span></span>
+                    <label>Felhasználónév</label>
+                </div>
+                <div class="txt_fields">
+                    <input type="password" id="passwordInput" required>
+                    <span></span>
+                    <label>Jelszó</label>
+                </div>
+                <input type="submit" value="Bejelentkezés">
+                <div class="notifybox" id="notifybox">
+                    <div class="icon_holder" id="icon_holder">
+                        
+                    </div>
+                    <!--<i class="fa-solid fa-circle-xmark xicon" style="color: #ffffff;"></i>-->
+                    <p class="notifyboxText" id="notifyboxText">Helytelen jelszó, próbáld meg újra!</p>
+                </div>
+                <!--<img class="ufo_back" src="/img/backs/ufo.png">-->
         </form>
     </div>
 

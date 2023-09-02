@@ -13,23 +13,54 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     height: 100vh;
     overflow: hidden;
-    background-color: #4255FF;
+    background-color: #11163e;
 }
+
+.galaxy_back{
+    position: absolute;
+    max-width: 60%;
+    top: -89px;
+    left: -124px;
+    opacity: 0.6;
+}
+
+.planet1_back{
+    position: fixed;
+    max-height: 40%;
+    max-width: 40%;
+    top: 90%;
+    right: -65px;
+    opacity: 0.8;
+}
+
+.ufo_back{
+    max-width: 60%;
+    position: absolute;
+    top: 304px;
+    left: -174px;
+    z-index: 2;
+    opacity: 1;
+}
+
+
+
+
 .center{
-    background-color: white;
+    background-color: #4255FF;
     box-shadow: 3px 3px 6px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
     border: none;
     margin-right: 20px;
     margin-left: 20px;
     border-radius: 20px;
     width: 400px;
     height: 500px;
-    rotate: -1deg;
 }
 .center h1{
     text-align: center;
     padding-bottom: 20px;
-    color: #4255FF;
+    color: #ffffff;
 }
 
 .center form{
@@ -40,13 +71,13 @@ body{
 
 form .txt_fields{
     position: relative;
-    border-bottom: 2px solid #c1c1c1;;
+    border-bottom: 2px solid #c5c5c5;;
     margin: 30px 0;
 }
 
 .txt_fields input{
-    font-family: 'Josefin Sans', sans-serif;
-    color: #4255FF;
+    font-family: sans-serif;
+    color: #ffffff;
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -60,7 +91,7 @@ form .txt_fields{
     position: absolute;
     top: 50%;
     left: 5px;
-    color: #4255FF;
+    color: #ffffff;
     transform: translateY(-50%);
     transition: 0.3s;
     pointer-events: none;
@@ -109,4 +140,32 @@ input[type="submit"]:hover{
     background-color: #ccf281;
     color:#4255FF;
 }
+
+.notifybox{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #df3939;
+    border-radius: 0.7rem;
+    margin-top: 20px;
+    box-shadow:  7px 5px 16px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.notifybox p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 15px;
+    color: white;
+    font-size: 18px;
+}
+
+.xicon{
+    margin-right: 10px;
+    height: 22px;
+}
+
+
 

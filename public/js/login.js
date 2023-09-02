@@ -11,54 +11,62 @@ document.getElementById('loginForm').addEventListener('submit', async (e)=>{
         },
         body: JSON.stringify(userCredentials)
     }
-
+    
+    const notifybox = document.getElementById("notifybox")
+    const notifyboxText = document.getElementById("notifyboxText")
+    const iconHolder = document.getElementById('icon_holder')
+    
     const response = await fetch('/loginUser', options)
     const resJson = await response.json()
+    console.log(resJson)
     switch(resJson.status){
         case 'user_valid':
             sessionStorage.setItem('Freelet ID', resJson.freeletId)
 
-            const notifyboxDiv = document.createElement("div")
-            notifyboxDiv.classList.add('notifybox')
-            notifyboxDiv.style.display = 'block';
-            notifyboxDiv.style.border = 'solid 2px rgb(64, 251, 101)'
-            const notifyboxText = document.createElement("p");
-            notifyboxText.style.color = 'rgb(64, 251, 101)'
-            notifyboxText.innerHTML = 'Sikeres bejelentkezés, átleszel iránytva a főoldalra';
-            notifyboxDiv.appendChild(notifyboxText)
-            document.getElementById("loginForm").appendChild(notifyboxDiv)
+            const iconAtValid = document.createElement('i')
+            iconAtValid.className = 'fa-solid fa-circle-check xicon'
+            iconAtValid.style.color = '#ffffff'
+            notifybox.style.display = 'flex'
+            notifybox.style.justifyContent = 'center'
+            notifybox.style.backgroundColor = 'rgb(2, 143, 0)'
+            notifyboxText.innerHTML = 'Sikeres bejelentkezés!';
+            iconHolder.appendChild(iconAtValid)
 
-            location.href = '/home'
+
+            setTimeout(() => {
+                notifybox.style.display = 'none'
+                location.href = '/home'
+            }, 1000);
 
             break
         case 'user_not_valid':
-            const notifyboxInvalidPasswordDiv = document.createElement("div")
-            notifyboxInvalidPasswordDiv.classList.add('notifybox')
-            notifyboxInvalidPasswordDiv.style.display = 'block';
-            notifyboxInvalidPasswordDiv.style.border = 'solid 2px red'
-            const notifyboxInvalidPasswordText = document.createElement("p");
-            notifyboxInvalidPasswordText.style.color = 'red'
-            notifyboxInvalidPasswordText.innerHTML = 'Helytelen jelszó, próbáld meg újra!';
-            notifyboxInvalidPasswordDiv.appendChild(notifyboxInvalidPasswordText)
-            document.getElementById("loginForm").appendChild(notifyboxInvalidPasswordDiv)
-
+            
+        const iconAtNotValid = document.createElement('i')
+        iconAtNotValid.className = 'fa-solid fa-circle-xmark xicon'
+        iconAtNotValid.style.color = '#ffffff'
+        notifybox.style.display = 'flex'
+        notifybox.style.justifyContent = 'center'
+        notifyboxText.innerHTML = 'Hibás jelszó!';
+        iconHolder.appendChild(iconAtNotValid)
+           
             setTimeout(() => {
-                notifyboxInvalidPasswordDiv.remove()
-            }, 3000);
+                notifybox.style.display = 'none'
+            }, 2000);
 
             break
         case 'user_not_exist':
-            const notifyboxUserNotExistDiv = document.createElement("div")
-            notifyboxUserNotExistDiv.classList.add('notifybox')
-            notifyboxUserNotExistDiv.style.display = 'block';
-            notifyboxUserNotExistDiv.style.border = 'solid 2px red'
-            const notifyboxUserNotExistText = document.createElement("p");
-            notifyboxUserNotExistText.style.color = 'red'
-            notifyboxUserNotExistText.innerHTML = 'A felhasználó nem létezik';
-            notifyboxUserNotExistDiv.appendChild(notifyboxUserNotExistText)
-            document.getElementById("loginForm").appendChild(notifyboxUserNotExistDiv)
+          
+        const iconAtNotExist = document.createElement('i')
+        iconAtNotExist.className = 'fa-solid fa-circle-xmark xicon'
+        iconAtNotExist.style.color = '#ffffff'
+        notifybox.style.display = 'flex'
+        notifybox.style.justifyContent = 'center'
+        notifyboxText.innerHTML = 'A felhasználó nem létezik!';
+        iconHolder.appendChild(iconAtNotExist)
 
-
+            setTimeout(() => {
+                notifybox.style.display = 'none'
+            }, 2000);
 
             break
     }

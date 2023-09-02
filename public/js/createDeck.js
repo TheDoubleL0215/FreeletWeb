@@ -1,6 +1,8 @@
+
+
+
 //Card elemei
 let orderNumber = 1
-
 
 function cardCreation(){
     orderNumber += 1;
@@ -59,6 +61,8 @@ myDiv.addEventListener('click', (e) => {
 
 document.getElementById('saving_btn').addEventListener('click', async(e) => {
     e.preventDefault()
+    let isEmpty = false //temp solution
+    const naming_input_getElement = document.getElementById("naming_input")
     const new_term_input_getElement = document.getElementsByName("new_term_input")
     const new_definition_input_getElement = document.getElementsByName("new_definition_input")
     if(new_term_input_getElement === '' || new_definition_input_getElement ===''){
@@ -70,27 +74,34 @@ document.getElementById('saving_btn').addEventListener('click', async(e) => {
             console.log(`A kettő elem nem egyenlő! ${new_term_input_getElement.length}, ${new_definition_input_getElement.length}`)
         }else{
             for(var i = 0; i < new_term_input_getElement.length; i++){
-                newTermsList.push(new_term_input_getElement[i].value)
+                if(new_term_input_getElement[i].value === '' || new_definition_input_getElement[i].value === ''){
+                    isEmpty = true
+                    alert('Van(nak) üres mezők!')
+                    break
+                }else{
+                    newTermsList.push(new_term_input_getElement[i].value)
+                    newDefinitionsList.push(new_definition_input_getElement[i].value)
+                }
             }
-            for(var i = 0; i < new_definition_input_getElement.length; i++){
-                newDefinitionsList.push(new_definition_input_getElement[i].value)
+            if(isEmpty===false){  
+                const datapack = {
+                    terms: newTermsList,
+                    definitions: newDefinitionsList,
+                    deckname: naming_input_getElement.value,
+                    sessionID: sessionStorage.getItem('Freelet ID')
+                }
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(datapack)
+                }
+                fetch('/createNewDeck', options)
+                
             }
-            console.log(`Ez a term: ${newTermsList}, \n és ez a definition: ${newDefinitionsList}`)
-    
-            const datapack = {
-                terms: newTermsList,
-                definitions: newDefinitionsList
-            }
-    
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(datapack)
-            }
-    
-            fetch('/createNewDeck', options)
+            location.href = '/home'
+
     }
     }
     
