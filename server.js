@@ -51,6 +51,10 @@ app.get('/learn', (req, res) => {
     res.sendFile(path.join(intialPath, "learnOverv.html"))
 })
 
+app.get('/flash', (req, res) => {
+    res.sendFile(path.join(intialPath, "flashCards.html"));
+})
+
 app.post('/checkIfUserExist', (req, res) => {
     const loginUsername = req.body.username
     console.log("Ez az username: " + loginUsername)
@@ -148,6 +152,34 @@ app.post('/getCurrentUser', async (req, res) => {
         mongoose.connection.close()
     }
 });
+
+
+app.post('/getRecordsOfDb', async (req, res) => {
+    const connString = `${req.body.felhasznalonev}_${req.body.nyitottAdatBazis}`
+    console.log('String: ', connString)
+    const connect = await mongoose.createConnection(`mongodb://127.0.0.1:27017/${req.body.felhasznalonev}_${req.body.nyitottAdatBazis}`)
+    try{
+        const Card = connect.model('Card', cardSchema)
+        const listcardTerm = new Array()
+        const listcardDefinition = new Array()
+        const requestingRecords = await Card.find({});
+        requestingRecords.forEach(card => {
+            listcardTerm.push(card.term)
+            listcardDefinition.push(card.definition)
+        });
+        console.log('Itt a requested recordok', requestingRecords)
+        console.log('Itt a requested listTerm', listcardTerm)
+        console.log('Itt a requested listDefinition', listcardDefinition)
+        res.json({terms: listcardTerm, definitions: listcardDefinition})
+
+    }
+    catch(e){
+        console.log('Hiba a /getRecordsOfDb: ', e.message)
+    }
+    finally{
+        connect.close()
+    }
+})
 
 app.post('/createNewDeck', async (req, res) => {
     const termsListBackEnd = req.body.terms

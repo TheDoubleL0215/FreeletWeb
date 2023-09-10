@@ -17,6 +17,7 @@ if(sessionStorage.getItem('Freelet ID') === null){
             const data = await response.json();
             console.log("Received name:", data.userName);
             theMainCharacter = data.userName
+            sessionStorage.setItem('User', theMainCharacter)
             getAllDbsName()
         } else {
             console.error("Failed to fetch database names");
