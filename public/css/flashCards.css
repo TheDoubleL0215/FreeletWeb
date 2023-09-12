@@ -57,19 +57,19 @@ body{
     z-index: 2;
 }
 
-.know_btn button,
-.notknow_btn button{
+.left_button_div button,
+.right_button_div button{
     width: 100%;
     height: 50px;
 }
 
-.know_btn,
-.notknow_btn {
+.left_button_div,
+.right_button_div {
     width: 100%;
 
 }
-.know_button_btn,
-.notknow_button_btn{
+.left_button,
+.right_button{
     outline: none;
     cursor: pointer;
     border: none;
@@ -78,15 +78,20 @@ body{
     transition: all 0.3s;
 }
 
-.know_button_btn:hover{
-    box-shadow: 2px 0px 26px 4px rgba(110, 232, 3, 0.33);
+.left_button:hover{
+    scale: 1.5;
+    /*box-shadow: 2px 0px 26px 4px rgba(255, 255, 255, 0.33);*/
     /*border: solid 4px green;*/
 }
 
-.notknow_button_btn:hover{
-    box-shadow: 2px 0px 26px 4px rgba(214, 45, 45, 0.44);
+.right_button:hover{
+    scale: 1.5;
+    color: #ccf281;
+    /*box-shadow: 2px 0px 26px 4px rgba(214, 45, 45, 0.44);*/
     /*border: solid 4px red;*/
 }
+
+
 
 .card_front,
 .card_back{
@@ -96,6 +101,11 @@ body{
 
 .card_back{
     transform: rotateX(180deg);
+}
+
+.counter_p{
+    font-family: var(--defaultFont);
+    color: white;
 }
 
 
