@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelet - Tanulás</title>
     <link rel="stylesheet" href="css/learning.css">
     <script src="https://kit.fontawesome.com/e775d902d1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" href="img/icon.png">
 </head>
 <body>
@@ -44,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="btn_holder">
+            <div class="btn_holder" id="btn_holder">
                 <div class="left_button_div">
                     <button class="left_button" id="left_button">
                         <div>
@@ -57,9 +61,9 @@
                         </div>
                     </button>
                 </div>
-                <div class="counter_holder">
+                <!--<div class="counter_holder">
                     <p class="counter_p" id="counter_p">0/0</p>
-                </div>
+                </div>-->
                 <div class="right_button_div">
                     <button class="right_button" id="right_button">
                         <div>

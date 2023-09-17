@@ -31,7 +31,7 @@ async function getRecordsOfDb(){
         console.log("storedCardDefinitions: ", storedCardDefinitions)
         InitializeTermTextField.innerHTML = storedCardTerms[0]
         InitializeDefinitionTextField.innerHTML = storedCardDefinitions[0]
-        counterP.innerHTML = `1/${storedCardTerms.length}`
+        //counterP.innerHTML = `1/${storedCardTerms.length}`
     }
 }
 getRecordsOfDb()
@@ -49,6 +49,8 @@ const card_placeholder_ok = document.querySelector('.card_placeholder_ok')
 const card_placeholder_wrong = document.querySelector('.card_placeholder_wrong')
 const okText = document.getElementById('okText')
 const okTextHolder = document.querySelector('.text_ok')
+const buttonHolder = document.getElementById('btn_holder')
+const jsConfetti = new JSConfetti()
 
 
 left_button.addEventListener('click', () => {
@@ -150,6 +152,12 @@ right_button.addEventListener('click', () => {
             okText.style.fontWeight = '900'
             card_placeholder_ok.style.fontSize = '66px'
             okText.innerHTML = 'És meg is tanultad!'
+            buttonHolder.style.display = 'none'
+            jsConfetti.addConfetti({
+                confettiRadius: 6,
+                confettiNumber: 500,
+            })
+            cardInner.removeEventListener('click', cardflipper)
 
         }else{
             cardInner.style.transition = 'all 300ms';

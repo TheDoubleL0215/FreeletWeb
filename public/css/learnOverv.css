@@ -165,11 +165,12 @@ nav{
 
 .left_button_div,
 .right_button_div {
-    width: 100%;
+    width: 90%;
 
 }
 .left_button,
 .right_button{
+
     outline: none;
     cursor: pointer;
     border: none;

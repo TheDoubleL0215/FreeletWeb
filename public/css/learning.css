@@ -129,7 +129,7 @@ nav{
     justify-content: space-around;
     width: 100%;
     z-index: 2;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .left_button_div button,
@@ -145,7 +145,7 @@ nav{
 
 .left_button_div,
 .right_button_div{
-    width: 100%;
+    width: 90%;
     height: 50px;
     border-radius: 1.2rem;
     transition: all 200ms;
@@ -163,9 +163,10 @@ nav{
 
 .left_button_div,
 .right_button_div {
-    width: 100%;
+    width: 45%;
 
 }
+
 .left_button,
 .right_button{
     outline: none;
