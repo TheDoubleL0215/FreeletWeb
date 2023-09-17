@@ -134,7 +134,7 @@ body{
     color: #4255FF;
 }
 
-@media (max-width: 536px){
+/*@media (max-width: 536px){
     body{
         overflow: hidden;
     }

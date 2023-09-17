@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelet - Tanulás</title>
-    <link rel="stylesheet" href="css/learnOverv.css">
+    <link rel="stylesheet" href="css/learning.css">
     <script src="https://kit.fontawesome.com/e775d902d1.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/icon.png">
 </head>
@@ -17,8 +17,6 @@
             <i class="fa-solid fa-user userIcon" style="color: #ffffff;"></i>
         </div>
     </nav>
-
-    
     <div class="card_conatiner" id="card_conatiner">
         <div class="title_div">
             <h1 id="displayDb">databaseName</h1>
@@ -35,33 +33,48 @@
                         <p id="defText">ipsum Lorem</p>
                     </div>
                 </div>
+                <div class="card_placeholder_ok">
+                    <div class="text_ok">
+                        <p id="okText">🥳</p>
+                    </div>
+                </div>
+                <div class="card_placeholder_wrong">
+                    <div class="text_wrong">
+                        <p id="wrongText">😔</p>
+                    </div>
+                </div>
             </div>
             <div class="btn_holder">
                 <div class="left_button_div">
-                    <button class="left_button" id="left_button"><i class="fa-solid fa-arrow-left fa-2xl left-arrow" style="color: #ffffff;"></i></button>
+                    <button class="left_button" id="left_button">
+                        <div>
+                            <i class="fa-solid fa-xmark fa-2xl" style="color: #e41111;"></i>
+                        </div>
+                        <div>
+                            <span>
+                                <p>Nem tudom</p>
+                            </span>
+                        </div>
+                    </button>
                 </div>
                 <div class="counter_holder">
-                    <p class="counter_p" id="counter_p"></p>
+                    <p class="counter_p" id="counter_p">0/0</p>
                 </div>
                 <div class="right_button_div">
-                    <button class="right_button" id="right_button"><i class="fa-solid fa-arrow-right fa-2xl right_arrow" style="color: #ffffff;"></i></button>
+                    <button class="right_button" id="right_button">
+                        <div>
+                            <i class="fa-solid fa-check fa-2xl" style="color: #1be600;"></i>
+                        </div>
+                        <div>
+                            <span>
+                                <p>Tudom</p>
+                            </span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="btns_containers">
-            <div class="learn_btn_container" onclick="window.location.href='learning.html'">
-                <i class="fa-solid fa-book" style="color: #ffffff; min-height: 50px;"></i>
-                <p class="btn_title">Tanulás</p>
-            </div>
-            <div class="test_btn_container">
-                <i class="fa-regular fa-file-lines" style="color: #ffffff; min-height: 50px;"></i>
-                <p class="btn_title">Teszt</p>
-            </div>
-        </div>
-    </div>
 
-
-
-    <script src="js/learnOverv.js"></script>
+    <script src="js/learning.js"></script>
 </body>
 </html>

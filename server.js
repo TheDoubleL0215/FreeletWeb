@@ -43,6 +43,10 @@ app.get('/home', (req, res) => {
     res.sendFile(path.join(intialPath, "home.html")) 
 })
 
+app.get('/learnDeck', (req, res) => {
+    res.sendFile(path.join(intialPath, "learning.html")) 
+})
+
 app.get('/createDeck', (req, res) => {
     res.sendFile(path.join(intialPath, "createDeck.html"))
 })
