@@ -37,6 +37,7 @@ async function getRecordsOfDb(){
 getRecordsOfDb()
 
 
+
 const counterP = document.getElementById('counter_p')
 const card = document.querySelector('.card_conatiner');
 const cardInner = document.querySelector('.card_self');
@@ -46,71 +47,126 @@ const left_button = document.querySelector('.left_button')
 const right_button = document.querySelector('.right_button')
 const card_placeholder_ok = document.querySelector('.card_placeholder_ok')
 const card_placeholder_wrong = document.querySelector('.card_placeholder_wrong')
+const okText = document.getElementById('okText')
+const okTextHolder = document.querySelector('.text_ok')
 
 
 left_button.addEventListener('click', () => {
-    InitializeTermTextField.style.display = 'none';
-    InitializeDefinitionTextField.style.display = 'none';
-    cardInner.removeEventListener('click', cardflipper)
-    cardInner.style.outline = 'solid 5px red';
-    cardInner.style.boxShadow = '2px 0px 26px 4px #e41111';
-    card_placeholder_wrong.style.display = 'block'
+    if(cardInner.style.transform === 'rotateX(180deg)'){
+        cardInner.style.transition = 'none';
+        console.log("Fordítva!!!")
+        card_placeholder_wrong.style.transform = 'rotateX(0deg)'
+        cardInner.style.transform = 'rotateX(0deg)';
+        setTimeout(() => {
+            cardInner.style.transition = '300ms';
+            cardInner.style.outline = 'solid 5px red';
+            cardInner.style.boxShadow = '2px 0px 26px 4px #e41111';
+            card_placeholder_wrong.style.display = 'block'
+            InitializeTermTextField.style.display = 'none';
+            InitializeDefinitionTextField.style.display = 'none';
+            cardInner.removeEventListener('click', cardflipper)
+        }, 10)
+    }else{
+        card_placeholder_wrong.style.transition = 'none'
+        card_placeholder_wrong.style.transform = 'rotateX(0deg)'
+        card_placeholder_wrong.style.transition = 'all 300ms'
+        setTimeout(() => {
+            cardInner.style.transition = '300ms';
+            cardInner.style.outline = 'solid 5px red';
+            cardInner.style.boxShadow = '2px 0px 26px 4px #e41111';
+            card_placeholder_wrong.style.display = 'block'
+            InitializeTermTextField.style.display = 'none';
+            InitializeDefinitionTextField.style.display = 'none';
+            cardInner.removeEventListener('click', cardflipper)
+        }, 10)
+    }
+    
     setTimeout(() => {
+        cardInner.style.transition = 'all 300ms';
         cardInner.addEventListener('click', cardflipper)
         cardInner.style.boxShadow = '2px 0px 26px 4px #00000054';
         cardInner.style.outline = 'none';
         // itt inicializáljuk a következő kártyát
-        InitializeTermTextField.innerHTML = storedCardTerms[0]
-        InitializeDefinitionTextField.innerHTML = storedCardDefinitions[0]
+        //const radomizedCardChoice = Math.floor(Math.random() * storedCardTerms.length);
+        let currentNumber = null;
+        let previousNumber = null;
+        let notSame = true
+        while (currentNumber === previousNumber) {
+            currentNumber = Math.floor(Math.random() * storedCardTerms.length);
+        }
+        console.log('Jelenlegi szám', currentNumber)
+        InitializeTermTextField.innerHTML = storedCardTerms[currentNumber]
+        InitializeDefinitionTextField.innerHTML = storedCardDefinitions[currentNumber]
+        previousNumber = currentNumber;
+        console.log("Előző: ", previousNumber)
         //
         InitializeTermTextField.style.display = 'block';
         InitializeDefinitionTextField.style.display = 'block';
         card_placeholder_wrong.style.display = 'none'
     }, 1000);
 
-
-    //cardInner.style.transition = 'none';
-    //if(cardInner.style.transform = 'rotateX(180deg)'){
-    //    cardInner.style.transform = 'rotateX(0deg)'
-    //}
-    //cardInner.style.transform = 'translateX(-50px)';
-    //setTimeout(() => {
-    //    cardInner.style.transition = 'all 300ms'
-    //    cardInner.style.transform = 'none';
-    //    counterP.innerHTML = `${counter + 1}/${storedCardTerms.length}`
-    //}, 100);
 });
 
 right_button.addEventListener('click', () => {
-    InitializeTermTextField.style.display = 'none';
-    InitializeDefinitionTextField.style.display = 'none';
-    cardInner.removeEventListener('click', cardflipper)
-    cardInner.style.outline = 'solid 5px green';
-    cardInner.style.boxShadow = '2px 0px 26px 4px #1be600';
-    card_placeholder_ok.style.display = 'block'
+    let indexOfCuurentTerm = storedCardTerms.indexOf(InitializeTermTextField.innerHTML)
+    let indexOfCuurentDefinition = storedCardDefinitions.indexOf(InitializeDefinitionTextField.innerHTML)
+    console.log('RemainTerms', storedCardTerms, 'RemainDefinitions', storedCardDefinitions)
+    storedCardTerms.splice(indexOfCuurentTerm, 1)
+    storedCardDefinitions.splice(indexOfCuurentDefinition, 1)
+    
+    if(cardInner.style.transform === 'rotateX(180deg)'){
+        cardInner.style.transition = 'none';
+        console.log("Fordítva!!!")
+        card_placeholder_ok.style.transform = 'rotateX(0deg)'
+        cardInner.style.transform = 'rotateX(0deg)';
+        setTimeout(() => {
+            cardInner.style.transition = '300ms';
+            cardInner.style.outline = 'solid 5px #1be600';
+            cardInner.style.boxShadow = '2px 0px 26px 4px #1be600';
+            card_placeholder_ok.style.display = 'block'
+            InitializeTermTextField.style.display = 'none';
+            InitializeDefinitionTextField.style.display = 'none';
+            cardInner.removeEventListener('click', cardflipper)
+        }, 10)
+    }else{
+        card_placeholder_ok.style.transition = 'none'
+        card_placeholder_ok.style.transform = 'rotateX(0deg)'
+        card_placeholder_ok.style.transition = 'all 300ms'
+        setTimeout(() => {
+            cardInner.style.transition = '300ms';
+            cardInner.style.outline = 'solid 5px #1be600';
+            cardInner.style.boxShadow = '2px 0px 26px 4px #1be600';
+            card_placeholder_ok.style.display = 'block'
+            InitializeTermTextField.style.display = 'none';
+            InitializeDefinitionTextField.style.display = 'none';
+            cardInner.removeEventListener('click', cardflipper)
+        }, 10)
+    }
+    
     setTimeout(() => {
-        cardInner.addEventListener('click', cardflipper)
-        cardInner.style.boxShadow = '2px 0px 26px 4px #00000054';
-        cardInner.style.outline = 'none';
-        // itt inicializáljuk a következő kártyát
-        InitializeTermTextField.innerHTML = storedCardTerms[0]
-        InitializeDefinitionTextField.innerHTML = storedCardDefinitions[0]
-        //
-        InitializeTermTextField.style.display = 'block';
-        InitializeDefinitionTextField.style.display = 'block';
-        card_placeholder_ok.style.display = 'none'
-    }, 1000);
+        if (storedCardTerms.length === 0){
+            okTextHolder.style.display = 'flex'
+            okTextHolder.style.textAlign = 'center'
+            okText.style.fontWeight = '900'
+            card_placeholder_ok.style.fontSize = '66px'
+            okText.innerHTML = 'És meg is tanultad!'
 
-    //cardInner.style.transition = 'none';
-    //if(cardInner.style.transform = 'rotateX(180deg)'){
-        //cardInner.style.transform = 'rotateX(0deg)'
-    //}
-    //cardInner.style.transform = 'translateX(50px)';
-    //setTimeout(() => {
-        //cardInner.style.transition = 'all 300ms'
-        //cardInner.style.transform = 'none';
-        //counterP.innerHTML = `${counter + 1}/${storedCardTerms.length}`
-    //}, 100);
+        }else{
+            cardInner.style.transition = 'all 300ms';
+            cardInner.addEventListener('click', cardflipper)
+            cardInner.style.boxShadow = '2px 0px 26px 4px #00000054';
+            cardInner.style.outline = 'none';
+            // itt inicializáljuk a következő kártyát
+            const radomizedCardChoice = Math.floor(Math.random() * storedCardTerms.length);
+            InitializeTermTextField.innerHTML = storedCardTerms[radomizedCardChoice]
+            InitializeDefinitionTextField.innerHTML = storedCardDefinitions[radomizedCardChoice]
+            //
+            InitializeTermTextField.style.display = 'block';
+            InitializeDefinitionTextField.style.display = 'block';
+            card_placeholder_ok.style.display = 'none'
+        }
+    }, 1000);
+    
 });
 
 function cardflipper(){
